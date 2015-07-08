@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @item_loan.item_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @item_loan.user_id %>
+</p>
+
+<p>
+  <strong>Estimated return date:</strong>
+  <%= @item_loan.estimated_return_date %>
+</p>
+
+<%= link_to 'Edit', edit_item_loan_path(@item_loan) %> |
+<%= link_to 'Back', item_loans_path %>

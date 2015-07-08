@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Item Loans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>User</th>
+      <th>Estimated return date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @item_loans.each do |item_loan| %>
+      <tr>
+        <td><%= item_loan.item_id %></td>
+        <td><%= item_loan.user_id %></td>
+        <td><%= item_loan.estimated_return_date %></td>
+        <td><%= link_to 'Show', item_loan %></td>
+        <td><%= link_to 'Edit', edit_item_loan_path(item_loan) %></td>
+        <td><%= link_to 'Destroy', item_loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item loan', new_item_loan_path %>

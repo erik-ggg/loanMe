@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @item_request.item_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @item_request.user_id %>
+</p>
+
+<p>
+  <strong>Date request:</strong>
+  <%= @item_request.date_request %>
+</p>
+
+<p>
+  <strong>Estimated return date:</strong>
+  <%= @item_request.estimated_return_date %>
+</p>
+
+<%= link_to 'Edit', edit_item_request_path(@item_request) %> |
+<%= link_to 'Back', item_requests_path %>
