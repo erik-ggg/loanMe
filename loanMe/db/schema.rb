@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708143225) do
+ActiveRecord::Schema.define(version: 20150709101009) do
 
   create_table "item_loans", force: :cascade do |t|
-    t.string   "item_id"
-    t.string   "user_id"
+    t.integer  "item_id"
+    t.integer  "user_id"
     t.string   "estimated_return_date"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end
 
   create_table "item_requests", force: :cascade do |t|
-    t.string   "item_id"
-    t.string   "user_id"
+    t.integer  "item_id"
+    t.integer  "user_id"
     t.string   "date_request"
     t.string   "estimated_return_date"
     t.datetime "created_at",            null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150708143225) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string   "user_id"
+    t.integer  "user_id"
     t.string   "name"
     t.string   "description"
     t.string   "url"

@@ -20,8 +20,7 @@
         <td><%= item_request.user_id %></td>
         <td><%= item_request.date_request %></td>
         <td><%= item_request.estimated_return_date %></td>
-        <td><%= link_to 'Show', item_request %></td>
-        <td><%= link_to 'Edit', edit_item_request_path(item_request) %></td>
+        <td><%= link_to 'Show', item_request %></td>        
         <td><%= link_to 'Destroy', item_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -30,7 +29,7 @@
 
 <br>
 
-<%= link_to 'New Item request', new_item_request_path %>
+
 <p>
   <%= link_to 'Back', controller: 'main_window' %>
 </p>
