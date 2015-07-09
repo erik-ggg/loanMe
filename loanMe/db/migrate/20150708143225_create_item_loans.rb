@@ -3,7 +3,7 @@ class CreateItemLoans < ActiveRecord::Migration
     create_table :item_loans do |t|
       t.string :item_id
       t.string :user_id
-      t.string :estimated_return_date
+      t.date :estimated_return_date
 
       t.timestamps null: false
     end

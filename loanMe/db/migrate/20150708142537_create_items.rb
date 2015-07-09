@@ -4,8 +4,8 @@ class CreateItems < ActiveRecord::Migration
       t.string :user_id
       t.string :name
       t.string :description
-      t.string :url
-      t.string :state
+      t.url :url
+      t.boolean :state
 
       t.timestamps null: false
     end

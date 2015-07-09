@@ -3,8 +3,8 @@ class CreateItemRequests < ActiveRecord::Migration
     create_table :item_requests do |t|
       t.string :item_id
       t.string :user_id
-      t.string :date_request
-      t.string :estimated_return_date
+      t.date :date_request
+      t.date :estimated_return_date
 
       t.timestamps null: false
     end

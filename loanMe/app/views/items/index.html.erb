@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
       <th>Name</th>
       <th>Description</th>
       <th>Url</th>
@@ -17,14 +16,18 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.user_id %></td>
         <td><%= item.name %></td>
         <td><%= item.description %></td>
-        <td><%= item.url %></td>
-        <td><%= item.state %></td>
+        <td><%= link_to 'Link: ' + item.name, item.url %></td>
+        <td><%= if item.state = true
+          'Item in property'
+        else
+          'Item loaned'
+        end %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Loan', item_path(item)%></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,3 +36,6 @@
 <br>
 
 <%= link_to 'New Item', new_item_path %>
+<p>
+  <%= link_to 'Back', controller: 'main_window' %>
+</p>

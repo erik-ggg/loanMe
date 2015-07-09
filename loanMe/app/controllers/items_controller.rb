@@ -1,5 +1,13 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :loan, :destroy]
+  def loan
+    @item.loan
+    if @item.state = false
+      @item.state = true
+    else
+      @item.state = false
+    end
+  end
 
   # GET /items
   # GET /items.json
@@ -69,6 +77,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:user_id, :name, :description, :url, :state)
+      params.require(:item).permit(:name, :description, :url, :state)
     end
 end

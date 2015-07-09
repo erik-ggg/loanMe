@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @item.user_id %>
-</p>
+
 
 <p>
   <strong>Name:</strong>
@@ -22,7 +19,11 @@
 
 <p>
   <strong>State:</strong>
-  <%= @item.state %>
+  <%= if @item.state = true
+    'Item in property'
+  else
+    'Item loaned'
+  end %>
 </p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
