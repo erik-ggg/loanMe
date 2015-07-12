@@ -20,7 +20,7 @@
         <td><%= item.name %></td>
         <td><%= item.description %></td>
         <td><%= item.url %></td>
-        <td><%= item.state %></td>
+        <td><%= check_state(item) %></td>
         <td><%= item.user.name %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :item_loans
   resources :item_requests
   get 'main_window/index'
 
@@ -9,9 +10,11 @@ root 'main_window#index'
 
   get 'users/:id/add_item' => 'users#add_item', as: :add_item
   get 'users/:id/see_items' => 'users#see_items', as: :see_items
-
   get 'users/:id/request_item' => 'users#request_item', as: :request_item
 
+  get 'item_requests/:id/loan_item' => 'item_requests#loan_item', as: :loan_item
+
+  get 'item_loans/:id/item_return' => 'item_loans#item_return', as: :item_return
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

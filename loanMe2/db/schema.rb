@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150712124921) do
+ActiveRecord::Schema.define(version: 20150712133816) do
+
+  create_table "item_loans", force: :cascade do |t|
+    t.string   "estimated_return_date"
+    t.integer  "item_id"
+    t.integer  "user_id"
+    t.integer  "item_request_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "item_loans", ["item_request_id"], name: "index_item_loans_on_item_request_id"
 
   create_table "item_requests", force: :cascade do |t|
     t.string   "date_request"
