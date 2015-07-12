@@ -1,5 +1,10 @@
 class ItemRequestsController < ApplicationController
-  before_action :set_item_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_item_request, only: [:show, :edit, :update, :treat_request, :destroy]
+
+  def treat_request
+    @item_request.loan
+  end
+
 
   # GET /item_requests
   # GET /item_requests.json

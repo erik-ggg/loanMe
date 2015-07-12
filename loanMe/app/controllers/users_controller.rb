@@ -1,5 +1,21 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :be_friends, :add_item, :see_items]
+
+
+  def add_item
+    @item = Item.new
+  end
+
+  def be_friends
+    @friend = Friend.new
+  end
+
+  def see_items
+    @user = User.find(params[:id])      
+  end
+
+  def see_friends
+  end
 
   # GET /users
   # GET /users.json
@@ -62,6 +78,7 @@ class UsersController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])

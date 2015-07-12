@@ -1,12 +1,11 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :loan, :destroy]
-  def loan
+  before_action :set_item, only: [:show, :edit, :update, :make_loan, :destroy]
+
+  def make_loan
     @item.loan
-    if @item.state = false
-      @item.state = true
-    else
-      @item.state = false
-    end
+    respond_to do |format|
+        format.html {  redirect_to items_path, notice: 'Item was successfully updated.' }
+      end
   end
 
   # GET /items
@@ -77,6 +76,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :description, :url, :state)
+      params.require(:item).permit(:name, :description, :url, :state, :user_id)
     end
 end

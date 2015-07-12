@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :friends
   get 'main_window/index'
   #get 'item' => 'item#loan'
 
@@ -9,11 +10,15 @@ root 'main_window#index'
   resources :items
   resources :users
 
-  resource :items do
-    collection do
-      get :loan
-    end
-  end
+  get 'items/:id/make_loan' => 'items#make_loan', as: :make_loan
+  get 'item_requests/:id/make_loan' => 'item_requests#treat_request', as: :treat_request
+  get 'friends/:id/friend_items' => 'friends#friend_items', as: :friend_items
+
+
+  # Users
+  get 'users/:id/be_friends' => 'users#be_friends', as: :be_friends
+  get 'users/:id/add_item' => 'users#add_item', as: :add_item
+  get 'users/:id/see_items' => 'users#see_items', as: :see_items
 
 
   # The priority is based upon order of creation: first created -> highest priority.

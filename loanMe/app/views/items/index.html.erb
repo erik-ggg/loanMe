@@ -19,15 +19,11 @@
         <td><%= item.name %></td>
         <td><%= item.description %></td>
         <td><%= link_to 'Link: ' + item.name, item.url %></td>
-        <td><%= if item.state = true
-          'Item in property'
-        else
-          'Item loaned'
-        end %></td>
+        <td><%= check_state(item) %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Loan', item_path(item)%></td>
+        <td><%= link_to 'Loan', make_loan_path(item)%></td>
       </tr>
     <% end %>
   </tbody>

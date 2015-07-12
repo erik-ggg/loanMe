@@ -13,7 +13,7 @@ class ItemLoansController < ApplicationController
   end
 
   # GET /item_loans/new
-  def new
+  def new    
     @item_loan = ItemLoan.new
   end
 
