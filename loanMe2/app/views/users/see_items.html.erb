@@ -22,7 +22,7 @@
         <td><%= item.url %></td>
         <td><%= item.state %></td>
         <td><%= item.user.name %></td>
-        <td><%= link_to 'Request item',  %></td>          
+        <td><%= link_to 'Request item', request_item_path(item) %></td>          
       </tr>
     <% end %>
   </tbody>

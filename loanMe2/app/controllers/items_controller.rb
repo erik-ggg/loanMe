@@ -1,9 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy, :request_item]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :request]
 
 
-  def request_item
-  end
 
 
 

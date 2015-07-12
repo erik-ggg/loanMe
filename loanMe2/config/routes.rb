@@ -10,7 +10,7 @@ root 'main_window#index'
   get 'users/:id/add_item' => 'users#add_item', as: :add_item
   get 'users/:id/see_items' => 'users#see_items', as: :see_items
 
-  get 'items/:id/request_item' => 'items#request_item', as: :request_item
+  get 'users/:id/request_item' => 'users#request_item', as: :request_item
 
 
   # The priority is based upon order of creation: first created -> highest priority.

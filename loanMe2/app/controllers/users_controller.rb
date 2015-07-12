@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :add_item, :see_items]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :add_item, :see_items, :request_item]
+
+
+  def request_item
+    @user.request_item
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: 'Item was successfully requested.' }
+    end
+  end
 
 
   def see_items
