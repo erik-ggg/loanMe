@@ -1,29 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-7 col-md-offset-3">
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+  <br><br>
+  <div class="container-fluid well span6 col-md-9">
+    <div class="row-fluid">
+      <!--div class="span2">
+        <img class="img-circle" src="https://secure.gravatar.com/avatar/de9b11d0f9c0569ba917393ed5e5b3ab?s=140&r=g&d=mm">
+      </div-->
 
-<p>
-  <strong>Surname:</strong>
-  <%= @user.surname %>
-</p>
+      <div class="span8">
+        <h1>
+          <%= current_user.name%>
+          <%= current_user.surname%>
+        </h1>
+        <h6>
+          Email:
+          <%= current_user.email%>
+        </h6>
+        <h6>
+          Phonenumber:
+          <%= current_user.phonenumber%>
+        </h6>
+        <h6>
+          Password:
+          <%= current_user.password%>
+        </h6>
+      </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Phonenumber:</strong>
-  <%= @user.phonenumber %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      <div class="span2">
+        <%= link_to 'Edit profile', edit_user_path, class: "btn btn-round" %>
+        <%= link_to 'Add some items', add_item_path, class: "btn btn-round" %>
+        <%= link_to 'See my items', see_my_items_path(current_user),  class: "btn btn-round" %>
+        <%= link_to 'See users', users_path, class: "btn btn-round" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,14 +1,18 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :request_item]
 
 
-
-
+  def request_item
+    @item.request
+    respond_to do |format|
+      format.html { redirect_to see_items_path(@item.user_id), notice: 'Item was successfully created.' }
+    end
+  end
 
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = Item.all.where.not(user_id: current_user.id)
   end
 
   # GET /items/1
@@ -32,7 +36,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -60,7 +64,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to see_my_items_path(current_user), notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

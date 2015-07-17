@@ -3,6 +3,9 @@ class ItemRequestsController < ApplicationController
 
   def treat_request
     @item_request.loan
+    redirect_to do |format|
+      format.html { redirect_to item_requests_url, notice: 'Item request was successfully created.' }
+    end
   end
 
 

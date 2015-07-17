@@ -1,17 +1,14 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :add_item, :see_items, :request_item]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :add_item, :see_my_items,  :see_items, :request_item]
 
 
-  def request_item
-    @user.request_item
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'Item was successfully requested.' }
-    end
+
+  def see_my_items
+    @items = Item.where(user_id: current_user.id)
   end
 
-
   def see_items
-    @items = Item.where(:user_id == @user.id)
+    @items = Item.where(user_id: @user.id)
   end
 
   def add_item
@@ -22,7 +19,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.all.where.not(id: current_user.id)
   end
 
   # GET /users/1
@@ -43,11 +40,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        log_in @user
+        flash[:success] = "Welcome to the Sample App!"
+        redirect_to @user
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
